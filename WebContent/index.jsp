@@ -18,7 +18,7 @@
 <div id= "menu">
 
 <button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
-<button class="button2" >RAISE A REQUEST</button>
+<button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 </div>
 <div id = "content">
