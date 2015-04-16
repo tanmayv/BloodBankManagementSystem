@@ -17,18 +17,56 @@
 </div>
 <div id= "menu">
 
-<button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
+<button class="button1" formaction="donate.jsp" onClick="location.href='donate.jsp'">DONATE</button>
 <button class="button2" >RAISE A REQUEST</button>
 
 </div>
-<div id = "content">
-<img  src="donateblood.jpg" width="100%" >
-<br>
-<br>
-Blood cannot be manufactured in factories; it can only come from generous donors. To cater to this demand, BloodConnect was launched on 1st April, 2010 (as a project under NSS IIT Delhi) with an unparalleled objective of solving the problem of blood shortage in India.
+<div id="container">
+    
+<form id = "donorform" >
+<label for="donorname">Donor Name:</label>
+<input type="text" id="donorname" name="donorname" required="required">
+<label for="bloodgroup">Blood Group</label>
+<select name="bloodgroup">
+<option value="volvo">A+</option>
+<option value="saab">A-</option>
+<option value="fiat">B+</option>
+<option value="audi">B-</option>
+<option value="volvo">AB+</option>
+<option value="saab">AB-</option>
+<option value="fiat">O+</option>
+<option value="audi">O-</option>
+</select>
 
-According to WHO data, India faces a shortage of 3 million blood units. This shortage can easily be eliminated if only an additional 2% of India's youth donates blood. To make this possible, BloodConnect acts as a channel connecting voluntary blood donors with those who need blood. 
-It is a youth-run organization and provides free help and specially works to target the poor and the needy.
+<label for="units" >Number of units donated:</label>
+<input type="number" id="units" name="units" min="1" required="required">
+<label for="phone">Phone:</label>
+<input type="number" id="phone" name="phone" required="required">
+<label for="hospital">Hospital:</label>
+<input type="text" id="hospital" name="hospital" required="required">
+<label for="city">City:</label>
+<select name="city">
+<option value="volvo">Indore</option>
+<option value="saab">Ujjain</option>
+<option value="fiat">Mhow</option>
+<option value="audi">Bhopal</option>
+<option value="volvo">Other</option>
+</select>
+
+<label for="address">Your Address:</label>
+<textarea rows="4" cols="50" name="address" form="donorform"></textarea>
+
+<label for="email">Your email:</label>
+<input type="text" id="email" name="email" required="required">
+
+
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" required="required">
+<div id="lower">
+
+<input type="submit" value="Submit">
+</div><!--/ lower-->
+</form>
 </div>
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
@@ -136,7 +174,7 @@ background-repeat: repeat;
 #webpage{
 position : relative;
 width: 1000px;
-height: 800px;
+height:1000px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -147,12 +185,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 340px;
-height: 275px;
-top:30%;
+width: 600px;
+height: 680px;
+top:170px;
 left: 50%;
 margin-top: -140px;
-margin-left: -170px;
+margin-left: -300px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);
@@ -169,38 +207,76 @@ label {
     margin-left: 18px;
     padding-top: 10px;
     font-size: 14px;
+    display: block;
 }
 
-input{
+input, select, textarea{
 font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 12px;
+font-size: 15px;
 outline: blue;
+display:block;
 box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     transition: all .4s ease;
 }
 input[type=text]:hover,
-input[type=password]:hover {
+input[type=number]:hover,textarea:hover {
     border: 1px solid #b6bfc0;
+    background:white;
+    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
 }
 input[type=text]:focus,
-input[type=password]:focus {
+input[type=number]:focus,textarea:hover {
     border: 1px solid #a8c9e4;
+    background:white;
+    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
 }
 
-input[type=text],
-input[type=password] {
-    color: #777;
+select{
+color: #777;
     padding-left: 10px;
-    margin: 10px;
-    margin-top: 12px;
+ 	margin-top : 2px;
     margin-left: 18px;
     width: 290px;
-    height: 35px;
-    border: 1px solid #c7d0d2;
+    height: 30px;
+    color:gray;
+    border:1px;
+    background : #eeeeee;
+   	border:0px;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+
+
+textarea{
+color: #777;
+    padding-left: 10px;
+ 	margin-top : 2px;
+    margin-left: 18px;
+    width: 290px;
+    height:80px;
+    color:gray;
+    
+    background : #eeeeee;
+   	border:0px;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+input[type=text],
+input[type=number]{
+    color: #777;
+    padding-left: 10px;
+ 	margin-top : 2px;
+    margin-left: 18px;
+    width: 290px;
+    height: 30px;
+    color:gray;
+    
+    background : #eeeeee;
+   	border:0px;
     border-radius: 2px;
     box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
 }
@@ -255,6 +331,7 @@ p a {
 }
 
 </style>
+
 
 </body>
 
