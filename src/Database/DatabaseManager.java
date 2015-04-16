@@ -1,3 +1,4 @@
+package Database;
 
 
 import java.sql.Connection;
@@ -15,7 +16,7 @@ public class DatabaseManager {
     	init();
     }
     
-    DatabaseManager(String user, String password, String database){
+    public DatabaseManager(String user, String password, String database){
     	db_user = user;
     	db_pass = password;
     	db_url = "jdbc:mysql://localhost/" + database;
@@ -30,7 +31,7 @@ public class DatabaseManager {
 		}
     }
     
-    Connection getConnection() throws SQLException{
+    public Connection getConnection() throws SQLException{
     	
     	if(conn == null){
     		conn = DriverManager.getConnection(db_url,db_user,db_pass);
@@ -38,8 +39,13 @@ public class DatabaseManager {
     	return conn;
     }
     
-    ResultSet executeQuery(String query) throws SQLException{
+    public ResultSet executeQuery(String query) throws SQLException{
     	Statement stmnt =  getConnection().createStatement();
     	return stmnt.executeQuery(query);
+    }
+    
+    public int executeUpdate(String query) throws SQLException{
+    	Statement stmnt =  getConnection().createStatement();
+    	return stmnt.executeUpdate(query);
     }
 }

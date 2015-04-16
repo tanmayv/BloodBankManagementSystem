@@ -1,79 +1,105 @@
 package Beans;
 
 import java.io.Serializable;
+import java.sql.SQLException;
 
+import Database.*;
 public class DonorBeans implements Serializable{
 	int id;
 	String name;
 	int bloodGroup;
 	int units;
-	int phone;
+	String phone;
 	String hospital;
 	int city;
 	String email;
 	int age;
+	DatabaseManager manager;
 	
-	void setName(String name){
+	public void setName(String name){
 		this.name = name;
 	}
 	
-	void setBloodGroup(int bloodGroup){
+	public void setBloodGroup(int bloodGroup){
 		this.bloodGroup = bloodGroup;
 	}
 	
-	void setUnits(int units){
+	public void setUnits(int units){
 		this.units = units;
 	}
 	
-	void setPhone(int phone){
+	public void setPhone(String phone){
 		this.phone = phone;
 	}
 	
-	void setHospital(String hospital){
+	public void setHospital(String hospital){
 		this.hospital = hospital;
 	}
 	
-	void setCity(int city){
+	public void setCity(int city){
 		this.city = city;
 	}
 	
-	void setEmail(String email){
+	public void setEmail(String email){
 		this.email = email;
 	}
 	
-	void setAge(int age){
+	public void setAge(int age){
 		this.age = age;
 	}
 	
-	String getName(){
+	public String getName(){
 		return this.name ;
 	}
 	
-	int getBloodGroup(int bloodGroup){
+	public int getBloodGroup(int bloodGroup){
 		return this.bloodGroup ;
 	}
 	
-	int getUnits(){
+	public int getUnits(){
 		return this.units;
 	}
 	
-	int getPhone(){
+	public String getPhone(){
 		return this.phone;
 	}
 	
-	String getHospital(){
+	public String getHospital(){
 		return this.hospital;
 	}
 	
-	int getCity(){
+	public int getCity(){
 		return this.city ;
 	}
 	
-	String getEmail(){
+	public String getEmail(){
 		return this.email;
 	}
 	
 	int getAge(){
 		return this.age;
+	}
+	
+	public boolean validate(){
+		return true;
+	}
+	
+	public int addToDatabase(){
+		String query = "Insert into donor(name,bgroup,units,phone,hospital,city,email,age) values('" + 
+				 name + "',"+bloodGroup+","+units+",'"+phone+"','"+hospital+"',"+city+",'"+email+"',"+age+");";
+		try {
+			return getManager().executeUpdate(query);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return -1;
+	}
+	
+	DatabaseManager getManager(){
+		if(manager == null){
+			manager = new DatabaseManager("root","zxtptr3728","mydb");
+		}
+		return manager;
 	}
 }

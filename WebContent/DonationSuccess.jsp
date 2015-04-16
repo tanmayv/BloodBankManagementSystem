@@ -17,56 +17,19 @@
 </div>
 <div id= "menu">
 
-<button class="button1" formaction="donate.jsp" onClick="location.href='donate.jsp'">DONATE</button>
+<button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
 <button class="button2" >RAISE A REQUEST</button>
 
 </div>
 <div id="container">
-    
-<form id = "donorform" action="DonorServlet" >
-<label for="donorname">Donor Name:</label>
-<input type="text" id="donorname" name="donorname" required="required">
-<label for="bloodgroup">Blood Group</label>
-<select name="bloodgroup">
-<option value="1">A+</option>
-<option value="2">A-</option>
-<option value="3">B+</option>
-<option value="4">B-</option>
-<option value="5">AB+</option>
-<option value="6">AB-</option>
-<option value="7">O+</option>
-<option value="8">O-</option>
-</select>
+<div id = "content">
 
-<label for="units" >Number of units donated:</label>
-<input type="number" id="units" name="units" min="1" required="required">
-<label for="phone">Phone:</label>
-<input type="number" id="phone" name="phone" required="required">
-<label for="hospital">Hospital:</label>
-<input type="text" id="hospital" name="hospital" required="required">
-<label for="city">City:</label>
-<select name="city">
-<option value="1">Indore</option>
-<option value="2">Ujjain</option>
-<option value="3">Mhow</option>
-<option value="4">Bhopal</option>
-<option value="5">Other</option>
-</select>
-
-<label for="address">Your Address:</label>
-<textarea rows="4" cols="50" name="address" form="donorform"></textarea>
-
-<label for="email">Your email:</label>
-<input type="text" id="email" name="email" required="required">
-
-
-<label for="age">Age:</label>
-<input type="number" id="age" name="age" required="required">
-<div id="lower">
-
-<input type="submit" value="Submit">
-</div><!--/ lower-->
-</form>
+Congratulations!
+<br>
+You have successfully donated Blood! :)</div>
+<form action="index.jsp">
+<input type="submit" value ="Home">
+</form>
 </div>
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
@@ -174,7 +137,7 @@ background-repeat: repeat;
 #webpage{
 position : relative;
 width: 1000px;
-height:1000px;
+height: 800px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -185,12 +148,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 600px;
-height: 680px;
-top:170px;
+width: 340px;
+height: 200px;
+top:30%;
 left: 50%;
 margin-top: -140px;
-margin-left: -300px;
+margin-left: -170px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);
@@ -207,76 +170,38 @@ label {
     margin-left: 18px;
     padding-top: 10px;
     font-size: 14px;
-    display: block;
 }
 
-input, select, textarea{
+input{
 font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 15px;
+font-size: 12px;
 outline: blue;
-display:block;
 box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     transition: all .4s ease;
 }
 input[type=text]:hover,
-input[type=number]:hover,textarea:hover {
+input[type=password]:hover {
     border: 1px solid #b6bfc0;
-    background:white;
-    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
 }
 input[type=text]:focus,
-input[type=number]:focus,textarea:hover {
+input[type=password]:focus {
     border: 1px solid #a8c9e4;
-    background:white;
-    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
 }
 
-select{
-color: #777;
-    padding-left: 10px;
- 	margin-top : 2px;
-    margin-left: 18px;
-    width: 290px;
-    height: 30px;
-    color:gray;
-    border:1px;
-    background : #eeeeee;
-   	border:0px;
-    border-radius: 2px;
-    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
-}
-
-
-textarea{
-color: #777;
-    padding-left: 10px;
- 	margin-top : 2px;
-    margin-left: 18px;
-    width: 290px;
-    height:80px;
-    color:gray;
-    
-    background : #eeeeee;
-   	border:0px;
-    border-radius: 2px;
-    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
-}
 input[type=text],
-input[type=number]{
+input[type=password] {
     color: #777;
     padding-left: 10px;
- 	margin-top : 2px;
+    margin: 10px;
+    margin-top: 12px;
     margin-left: 18px;
     width: 290px;
-    height: 30px;
-    color:gray;
-    
-    background : #eeeeee;
-   	border:0px;
+    height: 35px;
+    border: 1px solid #c7d0d2;
     border-radius: 2px;
     box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
 }
@@ -331,7 +256,6 @@ p a {
 }
 
 </style>
-
 
 </body>
 
