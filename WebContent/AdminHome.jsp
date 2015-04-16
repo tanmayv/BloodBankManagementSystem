@@ -1,3 +1,6 @@
+<%@page import="Beans.PatientBloodBean"%>
+<%@page import="Beans.DonorBloodbean"%>
+<%@page import="java.util.*"%>
 <html>
 
 <head>
@@ -7,6 +10,7 @@
 
 <body >
 
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
 <div id ="webpage">
 <div id = "header">
@@ -21,7 +25,67 @@
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 </div>
+<div id = "container">
+<div id = "content">
+<%! int index = 0;
+Map<Integer,String> map = new HashMap<Integer,String>();
+%>
+<%map.put(0,"A+");
+map.put(1,"A-");
+map.put(2,"B+");
+map.put(3,"B-");
+map.put(4,"AB+");
+map.put(5,"AB-");
+map.put(6,"O+");
+map.put(7,"O-");%>
+Total Blood Units Donated :
+<br>
+<table border="1" style="width:100%">
+  <tr>
+    <th>Blood Group</th>
+    <td>Units</td>		
+  </tr>
 
+
+<c:forEach var = "number" items="${totaldonorblood}">
+
+<tr>
+<td>
+<%= map.get(index) %>
+</td>
+<%index = index + 1; %>
+<td>
+<c:out value="${number}"> </c:out>
+</td>
+</tr>
+</c:forEach>
+
+
+</table>
+<br>
+Total Blood Unit Request :
+<table border="1" style="width:100%">
+  <tr>
+    <th>Blood Group</th>
+    <td>Units</td>		
+  </tr>
+
+<%index = 0; %>
+<c:forEach var = "number" items="${totalpatientblood}">
+
+<tr>
+<td>
+<%= map.get(index) %>
+</td>
+<%index = index + 1; %>
+<td>
+<c:out value="${number}"> </c:out>
+</td>
+</tr>
+</c:forEach>
+</table>
+</div>
+</div>
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
 </div>
@@ -140,8 +204,8 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 #container{
 position: relative;
 width: 340px;
-height: 275px;
-top:30%;
+height: 560px;
+top:150px;
 left: 50%;
 margin-top: -140px;
 margin-left: -170px;
