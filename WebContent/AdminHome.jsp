@@ -17,6 +17,9 @@
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
 </a>
+<a href = "AdminLogin.jsp">
+<img class="settings" src="setting.png">
+</a>
 <hr>
 </div>
 <div id= "menu">
@@ -38,15 +41,19 @@ map.put(4,"AB+");
 map.put(5,"AB-");
 map.put(6,"O+");
 map.put(7,"O-");%>
-Total Blood Units Donated :
+
 <br>
-<table border="1" style="width:100%">
-  <tr>
-    <th>Blood Group</th>
+<table class="flatTable">
+<tr class ="titleTr">
+<td class = titleTd colspan="2">Total Blood Units Donated :</td>
+
+</tr>
+  <tr class="headingTr">
+    <td>Blood Group</td>
     <td>Units</td>		
   </tr>
 
-
+<%index = 0; %>
 <c:forEach var = "number" items="${totaldonorblood}">
 
 <tr>
@@ -63,10 +70,15 @@ Total Blood Units Donated :
 
 </table>
 <br>
+<br>
+<table class="flatTable">
+<tr  class="titleTr">
+<td class="titleTd" colspan="2">
 Total Blood Unit Request :
-<table border="1" style="width:100%">
-  <tr>
-    <th>Blood Group</th>
+</td>
+</tr>
+  <tr class = "headingTr">
+    <td>Blood Group</td>
     <td>Units</td>		
   </tr>
 
@@ -102,8 +114,57 @@ color: #444
 -webkit-font-smoothing : antialiased;
 
 }
+.settings{
+float:right;
 
+height : 60px;
+}
+.flatTable{
+border: 1px solid #ccc;
+box-shadow : 0 1px 2px rgba(0,0,0,.3);
+	width:100%;
+	margin-top:-20px;
+	min-width : 350px;
+	border-collapse: collapse;
+	font-weight: bold;
+	color: #6E6E6E;
+	
+}
+tr{
+	-webkit-transition: all .4s ease;
+    -moz-transition: all .4s ease;
+    transition: all .4s ease;
+	height:25px;
+	background: #E6E6E6;
+	border-bottom: rgba(0,0,0,.05) 1px solid;
+}
+td{
+	padding-left: :30px;
+	padding-left: 50px;
+	padding-right: 50px;
+}
+tr:hover{
+	background: #F0F0F0;
+}
 
+.titleTr{
+	height: 50px;
+	background: #BD0000;
+	color:#f6f3f7; 
+	border:0px solid;
+}
+.titleTr:hover{
+background: #BD0000;
+}
+.headingTr{
+	height: 35px;
+	background: #CC0000;
+	color:#f6f3f7; 
+	border:0px solid;
+}
+.headingTr:hover{
+	background: #CC0000;
+}
 #content{
 margin: 30px;
 	font-family: "Helvetica Neue", Helvetica, sans-serif;
@@ -192,7 +253,7 @@ background-repeat: repeat;
 #webpage{
 position : relative;
 width: 1000px;
-height: 800px;
+height: 900px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -203,12 +264,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 340px;
-height: 560px;
+width: 500px;
+height: 660px;
 top:150px;
 left: 50%;
 margin-top: -140px;
-margin-left: -170px;
+margin-left: -250px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);

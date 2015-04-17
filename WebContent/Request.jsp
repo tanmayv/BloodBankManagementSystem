@@ -18,15 +18,19 @@
 </a>
 <hr>
 </div>
-<button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
-<button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
+<div id= "menu">
 
+<button class="button1" formaction="donate.jsp" onClick="location.href='donate.jsp'">DONATE</button>
+<button class="button2" >RAISE A REQUEST</button>
 
+</div>
 <div id="container">
     
-<form id = "donorform" action="DonorServlet" >
-<label for="donorname">Donor Name:</label>
+<form id = "donorform" action="RequestServlet" >
+<label for="donorname">Patient Name:</label>
 <input type="text" id="donorname" name="donorname" required="required">
+<label for="details">More Details:</label>
+<textarea rows="4" cols="50" name="address" form="donorform">Disease details</textarea>
 <label for="bloodgroup">Blood Group</label>
 <select name="bloodgroup">
 <option value="1">A+</option>
@@ -39,7 +43,7 @@
 <option value="8">O-</option>
 </select>
 
-<label for="units" >Number of units required:</label>
+<label for="units" >Number of units donated:</label>
 <input type="number" id="units" name="units" min="1" required="required">
 <label for="phone">Phone:</label>
 <input type="number" id="phone" name="phone" required="required">
@@ -57,12 +61,16 @@
 <label for="address">Your Address:</label>
 <textarea rows="4" cols="50" name="address" form="donorform"></textarea>
 
-<label for="email">Your email:</label>
-<input type="text" id="email" name="email" required="required">
-
+<label for="email">Blood or Platelet:</label>
+<select name="bloodplatelet">
+<option value="1">Blood</option>
+<option value="2">Platelet</option>
+<option value="3">Both</option>
+</select>
 
 <label for="age">Age:</label>
 <input type="number" id="age" name="age" required="required">
+
 <div id="lower">
 
 <input type="submit" value="Submit">
@@ -175,7 +183,7 @@ background-repeat: repeat;
 #webpage{
 position : relative;
 width: 1000px;
-height:1000px;
+height:1150px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -187,7 +195,7 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 #container{
 position: relative;
 width: 600px;
-height: 680px;
+height: 790px;
 top:170px;
 left: 50%;
 margin-top: -140px;
@@ -320,11 +328,6 @@ input[type=submit]:active {
 input[type=checkbox]{
 	margin-left: 20px;
 }
-.settings{
-float:right;
-
-height : 60px;
-}
 p a {
     font-size: 11px;
     color: #aaa;
@@ -334,6 +337,11 @@ p a {
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     transition: all .4s ease;
+}
+.settings{
+float:right;
+
+height : 60px;
 }
 
 </style>

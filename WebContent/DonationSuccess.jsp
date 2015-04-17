@@ -13,6 +13,9 @@
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
 </a>
+<a href = "AdminLogin.jsp">
+<img class="settings" src="setting.png">
+</a>
 <hr>
 </div>
 <div id= "menu">
@@ -253,6 +256,11 @@ p a {
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     transition: all .4s ease;
+}
+.settings{
+float:right;
+
+height : 60px;
 }
 
 </style>

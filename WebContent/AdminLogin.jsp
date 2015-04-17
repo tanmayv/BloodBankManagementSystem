@@ -13,9 +13,7 @@
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
 </a>
-<a href = "AdminLogin.jsp">
-<img class="settings" src="setting.png">
-</a>
+
 <hr>
 </div>
 <button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
@@ -24,48 +22,20 @@
 
 <div id="container">
     
-<form id = "donorform" action="DonorServlet" >
-<label for="donorname">Donor Name:</label>
-<input type="text" id="donorname" name="donorname" required="required">
-<label for="bloodgroup">Blood Group</label>
-<select name="bloodgroup">
-<option value="1">A+</option>
-<option value="2">A-</option>
-<option value="3">B+</option>
-<option value="4">B-</option>
-<option value="5">AB+</option>
-<option value="6">AB-</option>
-<option value="7">O+</option>
-<option value="8">O-</option>
-</select>
-
-<label for="units" >Number of units required:</label>
-<input type="number" id="units" name="units" min="1" required="required">
-<label for="phone">Phone:</label>
-<input type="number" id="phone" name="phone" required="required">
-<label for="hospital">Hospital:</label>
-<input type="text" id="hospital" name="hospital" required="required">
-<label for="city">City:</label>
-<select name="city">
-<option value="1">Indore</option>
-<option value="2">Ujjain</option>
-<option value="3">Mhow</option>
-<option value="4">Bhopal</option>
-<option value="5">Other</option>
-</select>
-
-<label for="address">Your Address:</label>
-<textarea rows="4" cols="50" name="address" form="donorform"></textarea>
-
-<label for="email">Your email:</label>
-<input type="text" id="email" name="email" required="required">
+    
+    <div id ="containerheader">
+    Admin Login
+    </div>
+<form id = "donorform" action="AdminHomeServlet" >
+<label for="username">Username:</label>
+<input type="text" id="password" name="username" required="required">
 
 
-<label for="age">Age:</label>
-<input type="number" id="age" name="age" required="required">
+<label for="password">Password:</label>
+<input type="password" id="password" name="password" required="required">
 <div id="lower">
 
-<input type="submit" value="Submit">
+<input type="submit" value="Login">
 </div><!--/ lower-->
 </form>
 </div>
@@ -73,6 +43,8 @@
 © Copyright 2014 BloodConnect. All rights reserved
 </div>
 </div>
+
+
 
 
 <style>
@@ -86,17 +58,17 @@ color: #444
 
 }
 
-
-#content{
-margin: 30px;
-	font-family: "Helvetica Neue", Helvetica, sans-serif;
-	font-size:13px;
-	letter-spacing: 1px;
-	word-spacing: 2px;
-	line-height: 20px; 
-	text-align: justify; 
-overflow: auto; 
+#containerheader{
+width:100%;
+height:35px;
+background: #BD0000;
+color : #f6f3f7;
+text-align: center;
+padding-top:15px;
+font-weight: bold;
 }
+
+
 #footer{
 -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
@@ -175,7 +147,7 @@ background-repeat: repeat;
 #webpage{
 position : relative;
 width: 1000px;
-height:1000px;
+height:580px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -186,12 +158,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 600px;
-height: 680px;
+width: 330px;
+height: 275px;
 top:170px;
 left: 50%;
 margin-top: -140px;
-margin-left: -300px;
+margin-left: -165px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);
@@ -222,14 +194,14 @@ box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
     transition: all .4s ease;
 }
 input[type=text]:hover,
-input[type=number]:hover,textarea:hover {
+input[type=password]:hover,textarea:hover {
     border: 1px solid #b6bfc0;
     background:white;
     color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
 }
 input[type=text]:focus,
-input[type=number]:focus,textarea:hover {
+input[type=password]:focus,textarea:hover {
     border: 1px solid #a8c9e4;
     background:white;
     color:black;
@@ -267,7 +239,7 @@ color: #777;
     box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
 }
 input[type=text],
-input[type=number]{
+input[type=password]{
     color: #777;
     padding-left: 10px;
  	margin-top : 2px;
