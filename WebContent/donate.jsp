@@ -1,14 +1,14 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="animate.css">
 </head>
 
 
 <body >
 
 
-<div id ="webpage">
+<div id ="webpage" class ="animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -22,7 +22,7 @@
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 
-<div id="container">
+<div id="container" class="animated slideInUp">
     
 <form id = "donorform" action="DonorServlet" >
 <label for="donorname">Donor Name:</label>
@@ -137,6 +137,8 @@ margin-right: 30px;
 	background-color: #B82E00;
 	color:white;
 }
+
+
 
 .button2{
 	-webkit-transition: all .4s ease;

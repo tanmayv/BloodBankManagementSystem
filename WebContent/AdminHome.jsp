@@ -4,7 +4,7 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="animate.css">
 </head>
 
 
@@ -12,7 +12,7 @@
 
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
 
-<div id ="webpage">
+<div id ="webpage" class = "animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -28,7 +28,7 @@
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 </div>
-<div id = "container">
+<div id = "container" class="animated fadeIn">
 <div id = "content">
 <%! int index = 0;
 Map<Integer,String> map = new HashMap<Integer,String>();
@@ -113,6 +113,10 @@ font-family: "Helvetica Neue", Helvetica, sans-serif;
 color: #444
 -webkit-font-smoothing : antialiased;
 
+}
+
+.fadeIn{
+-webkit-animation-delay : 0.6s;
 }
 .settings{
 float:right;

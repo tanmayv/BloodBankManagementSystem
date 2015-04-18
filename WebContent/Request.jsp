@@ -1,14 +1,14 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="animate.css">
 </head>
 
 
 <body >
 
 
-<div id ="webpage">
+<div id ="webpage" class = "animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -24,7 +24,7 @@
 <button class="button2" >RAISE A REQUEST</button>
 
 </div>
-<div id="container">
+<div id="container" class = "animated slideInUp">
     
 <form id = "donorform" action="RequestServlet" >
 <label for="donorname">Patient Name:</label>

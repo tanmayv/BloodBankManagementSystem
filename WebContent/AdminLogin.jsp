@@ -1,14 +1,14 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="animate.css">
 </head>
 
 
 <body >
 
 
-<div id ="webpage">
+<div id ="webpage" class = "animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -20,7 +20,7 @@
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 
-<div id="container">
+<div id="container" class="animated fadeIn">
     
     
     <div id ="containerheader">
@@ -48,6 +48,11 @@
 
 
 <style>
+
+.fadeIn{
+
+-webkit-animation-delay:0.5s;
+}
 html, body{
 
 width: 100%;

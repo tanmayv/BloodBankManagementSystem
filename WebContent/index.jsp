@@ -1,14 +1,14 @@
 <html>
 
 <head>
-
+<link rel="stylesheet" href="animate.css">
 </head>
 
 
 <body >
 
 
-<div id ="webpage">
+<div id ="webpage" class="animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -32,6 +32,7 @@ Blood cannot be manufactured in factories; it can only come from generous donors
 
 According to WHO data, India faces a shortage of 3 million blood units. This shortage can easily be eliminated if only an additional 2% of India's youth donates blood. To make this possible, BloodConnect acts as a channel connecting voluntary blood donors with those who need blood. 
 It is a youth-run organization and provides free help and specially works to target the poor and the needy.
+
 </div>
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
@@ -137,6 +138,7 @@ background-repeat: repeat;
 
 
 #webpage{
+
 position : relative;
 width: 1000px;
 height: 800px;
