@@ -1,5 +1,6 @@
 <%@page import="Beans.PatientBloodBean"%>
 <%@page import="Beans.DonorBloodbean"%>
+
 <%@page import="java.util.*"%>
 <html>
 
@@ -28,76 +29,66 @@
 <button class="button2" onClick="location.href='AllRequestServlet'">RAISE A REQUEST</button>
 
 </div>
-<div id = "container" class="animated fadeIn">
-<div id = "content">
+
 <%! int index = 0;
-Map<Integer,String> map = new HashMap<Integer,String>();
+Map<Integer,String> bloodmap = new HashMap<Integer,String>();
+Map<Integer,String> citymap = new HashMap<Integer,String>();
 %>
-<%map.put(0,"A+");
-map.put(1,"A-");
-map.put(2,"B+");
-map.put(3,"B-");
-map.put(4,"AB+");
-map.put(5,"AB-");
-map.put(6,"O+");
-map.put(7,"O-");%>
+<%bloodmap.put(0,"A+");
+bloodmap.put(1,"A-");
+bloodmap.put(2,"B+");
+bloodmap.put(3,"B-");
+bloodmap.put(4,"AB+");
+bloodmap.put(5,"AB-");
+bloodmap.put(6,"O+");
+bloodmap.put(7,"O-");
 
-<br>
-<table class="flatTable">
-<tr class ="titleTr">
-<td class = titleTd colspan="2">Total Blood Units Donated :</td>
+citymap.put(0,"city0");
+citymap.put(1,"city1");
+citymap.put(2,"city2");
+citymap.put(3,"city3");
+citymap.put(4,"city4");
+citymap.put(5,"city5");
+%>
 
-</tr>
-  <tr class="headingTr">
-    <td>Blood Group</td>
-    <td>Units</td>		
-  </tr>
-
-<%index = 0; %>
-<c:forEach var = "number" items="${totaldonorblood}">
-
-<tr>
-<td>
-<%= map.get(index) %>
-</td>
-<%index = index + 1; %>
-<td>
-<c:out value="${number}"> </c:out>
-</td>
-</tr>
-</c:forEach>
-
-
-</table>
 <br>
 <br>
 <table class="flatTable">
 <tr  class="titleTr">
-<td class="titleTd" colspan="2">
-Total Blood Unit Request :
+<td class="titleTd" colspan="10">
+List Of All Requests
 </td>
 </tr>
   <tr class = "headingTr">
-    <td>Blood Group</td>
-    <td>Units</td>		
+    <td class="id">ID</td>
+    
+    <td class="name">Name</td>
+    <td class="details">Details</td>
+    <td class="age">Age</td>
+    <td class="bgroup">B-Group</td>
+    <td class="units">Units</td>
+    <td class="phone">Phone</td>
+    <td class="hospital">Hospital</td>
+    <td class="city">City</td>
+    <td class="email">Email</td>		
   </tr>
 
-<%index = 0; %>
-<c:forEach var = "number" items="${totalpatientblood}">
-
+<c:forEach var="request" items="${requests}">
 <tr>
-<td>
-<%= map.get(index) %>
-</td>
-<%index = index + 1; %>
-<td>
-<c:out value="${number}"> </c:out>
-</td>
+	<td class="id">${request.id}</td>
+    <td class="name">${request.name}</td>
+    <td class="details">${request.details}</td>
+    <td class="age">${request.age}</td>
+    <td class="bgroup">${request.bgroup}</td>
+    <td class="units">${request.units}</td>
+    <td class="phone">${request.phone}</td>
+    <td class="hospital">${request.hospital}</td>
+    <td class="city">${request.city}</td>
+    <td class="email">${request.email}</td>	
 </tr>
 </c:forEach>
 </table>
-</div>
-</div>
+
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
 </div>
@@ -105,6 +96,11 @@ Total Blood Unit Request :
 
 
 <style>
+
+td{
+height:35px;
+
+}
 html, body{
 
 width: 100%;
@@ -142,10 +138,9 @@ tr{
 	background: #E6E6E6;
 	border-bottom: rgba(0,0,0,.05) 1px solid;
 }
+
 td{
-	padding-left: :30px;
-	padding-left: 50px;
-	padding-right: 50px;
+padding-left: 10px;
 }
 tr:hover{
 	background: #F0F0F0;

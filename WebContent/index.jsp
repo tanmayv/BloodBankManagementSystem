@@ -7,7 +7,6 @@
 
 <body >
 
-
 <div id ="webpage" class="animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
@@ -24,6 +23,7 @@
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 </div>
+
 <div id = "content">
 <img  src="donateblood.jpg" width="100%" >
 <br>
@@ -41,6 +41,7 @@ It is a youth-run organization and provides free help and specially works to tar
 
 
 <style>
+
 html, body{
 
 width: 100%;
@@ -117,8 +118,9 @@ margin-right: 30px;
 	font-weight:700;
 	border:0px;
 	padding:2px 30px;
-	height:28px	
+	height:28px;
 }
+
 .button2:hover{
 	background-color: #B82E00;
 	color:white;

@@ -24,8 +24,8 @@
 </div>
 <div id= "menu">
 
-<button class="button1" onClick="location.href='AllDonorServlet'">DONATE</button>
-<button class="button2" onClick="location.href='AllRequestServlet'">RAISE A REQUEST</button>
+<button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
+<button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
 </div>
 <div id = "container" class="animated fadeIn">
@@ -49,6 +49,11 @@ map.put(7,"O-");%>
 
 </tr>
   <tr class="headingTr">
+  <td>name</td>
+  <td>Units</td>
+  <td>Units</td>
+  <td>Units</td>
+  <td>Units</td>
     <td>Blood Group</td>
     <td>Units</td>		
   </tr>
@@ -268,12 +273,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 500px;
+width: 1000px;
 height: 660px;
 top:150px;
 left: 50%;
 margin-top: -140px;
-margin-left: -250px;
+margin-left: -500px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);

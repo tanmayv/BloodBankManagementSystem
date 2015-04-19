@@ -7,6 +7,7 @@ import Database.DatabaseManager;
 public class BloodBean implements Serializable {
 	public int[] blood = {0,0,0,0,0,0,0,0};
 	
+	
 	public DatabaseManager manager;
 	
 	public int[] getBloodArray(){

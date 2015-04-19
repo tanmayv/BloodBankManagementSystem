@@ -67,7 +67,7 @@ public class RequestBean implements Serializable {
 		return this.name ;
 	}
 	
-	public int getBloodGroup(int bloodGroup){
+	public int getBgroup(){
 		return this.bloodGroup ;
 	}
 	
@@ -102,12 +102,19 @@ public class RequestBean implements Serializable {
 	public int getResolved(){
 		return this.resolved;
 	}
-	int getAge(){
+	public int getAge(){
 		return this.age;
 	}
 	
 	public boolean validate(){
 		return true;
+	}
+	
+	public void setId(int id){
+		this.id = id;
+	}
+	public int getId(){
+		return this.id;
 	}
 	
 	public int addToDatabase(){
