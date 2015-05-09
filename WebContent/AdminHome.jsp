@@ -10,7 +10,7 @@
 
 <body >
 
-<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>   <!-- Standard Tag Library for JSP -->
 
 <div id ="webpage" class = "animated slideInDown">
 <div id = "header">

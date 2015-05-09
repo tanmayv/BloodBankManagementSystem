@@ -1,3 +1,4 @@
+
 <html>
 
 <head>
@@ -6,8 +7,9 @@
 
 
 <body >
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 
-<div id ="webpage" class="animated slideInDown">
+<div id ="webpage" class ="animated slideInDown">
 <div id = "header">
 <a href="index.jsp">
 <img class="logo" src="logo.png" height="60px" >
@@ -17,23 +19,56 @@
 </a>
 <hr>
 </div>
-
-<div id= "menu">
-
 <button class="button1" onClick="location.href='donate.jsp'">DONATE</button>
 <button class="button2" onClick="location.href='Request.jsp'">RAISE A REQUEST</button>
 
-</div>
 
-<div id = "content">
-<img  src="donateblood.jpg" width="100%" >
-<br>
-<br>
-Blood cannot be manufactured in factories; it can only come from generous donors. To cater to this demand, Life Stream was launched with an unparalleled objective of solving the problem of blood shortage in India.
+<div id="container" class="animated slideInUp">
+    
+<form id = "donorform" action="DonorServlet" >
+<label for="donorname">Donor Name:</label>
+<input type="text" id="donorname" name="donorname" required="required" value="${donor.name} ">
+<label for="bloodgroup">Blood Group</label>
+<select name="bloodgroup" >
+<option value="1">A+</option>
+<option value="2">A-</option>
+<option value="3">B+</option>
+<option value="4">B-</option>
+<option value="5">AB+</option>
+<option value="6">AB-</option>
+<option value="7">O+</option>
+<option value="8">O-</option>
+</select>
 
-According to WHO data, India faces a shortage of 3 million blood units. This shortage can easily be eliminated if only an additional 2% of India's youth donates blood. To make this possible, Life Stream acts as a channel connecting voluntary blood donors with those who need blood. 
-It is a youth-run organization and provides free help and specially works to target the poor and the needy.
+<label for="units" >Number of units required:</label>
+<input type="number" id="units" name="units" min="1" required="required" value="${donor.units}">
+<label for="phone">Phone:</label>
+<input type="number" id="phone" name="phone" required="required" value="${donor.phone}">
+<label for="hospital">Hospital:</label>
+<input type="text" id="hospital" name="hospital" required="required" value="${donor.hospital}">
+<label for="city">City:</label>
+<select name="city">
+<option value="1">Indore</option>
+<option value="2">Ujjain</option>
+<option value="3">Mhow</option>
+<option value="4">Bhopal</option>
+<option value="5">Other</option>
+</select>
 
+<label for="email">Your email:</label>
+<input type="text" id="email" name="email" required="required" value="${donor.email }">
+
+
+<label for="age">Age:</label>
+<input type="number" id="age" name="age" required="required" value = "${donor.age }">
+<div id="lower">
+
+<input type="hidden" id="operation">
+
+<input type="submit" value="Submit">
+
+</div><!--/ lower-->
+</form>
 </div>
 <div id = "footer">
 © Copyright 2014 BloodConnect. All rights reserved
@@ -42,7 +77,6 @@ It is a youth-run organization and provides free help and specially works to tar
 
 
 <style>
-
 html, body{
 
 width: 100%;
@@ -105,6 +139,8 @@ margin-right: 30px;
 	color:white;
 }
 
+
+
 .button2{
 	-webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
@@ -119,9 +155,8 @@ margin-right: 30px;
 	font-weight:700;
 	border:0px;
 	padding:2px 30px;
-	height:28px;
+	height:28px	
 }
-
 .button2:hover{
 	background-color: #B82E00;
 	color:white;
@@ -141,10 +176,9 @@ background-repeat: repeat;
 
 
 #webpage{
-
 position : relative;
 width: 1000px;
-height: 800px;
+height:1000px;
 margin-left: -500px;
 left: 50%;
 margin-top: -20px;
@@ -155,12 +189,12 @@ box-shadow : 0 2px 2px rgba(0,0,0,.3);
 
 #container{
 position: relative;
-width: 340px;
-height: 275px;
-top:30%;
+width: 600px;
+height: 680px;
+top:170px;
 left: 50%;
 margin-top: -140px;
-margin-left: -170px;
+margin-left: -300px;
 background: #fff;
 border: 1px solid #ccc;
 box-shadow : 0 1px 2px rgba(0,0,0,.3);
@@ -177,38 +211,76 @@ label {
     margin-left: 18px;
     padding-top: 10px;
     font-size: 14px;
+    display: block;
 }
 
-input{
+input, select, textarea{
 font-family: "Helvetica Neue", Helvetica, sans-serif;
-font-size: 12px;
+font-size: 15px;
 outline: blue;
+display:block;
 box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #f5f7f8;
     -webkit-transition: all .4s ease;
     -moz-transition: all .4s ease;
     transition: all .4s ease;
 }
 input[type=text]:hover,
-input[type=password]:hover {
+input[type=number]:hover,textarea:hover {
     border: 1px solid #b6bfc0;
+    background:white;
+    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .7), 0 0 0 5px #f5f7f8;
 }
 input[type=text]:focus,
-input[type=password]:focus {
+input[type=number]:focus,textarea:hover {
     border: 1px solid #a8c9e4;
+    background:white;
+    color:black;
     box-shadow: inset 0 1.5px 3px rgba(190, 190, 190, .4), 0 0 0 5px #e6f2f9;
 }
 
-input[type=text],
-input[type=password] {
-    color: #777;
+select{
+color: #777;
     padding-left: 10px;
-    margin: 10px;
-    margin-top: 12px;
+ 	margin-top : 2px;
     margin-left: 18px;
     width: 290px;
-    height: 35px;
-    border: 1px solid #c7d0d2;
+    height: 30px;
+    color:gray;
+    border:1px;
+    background : #eeeeee;
+   	border:0px;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+
+
+textarea{
+color: #777;
+    padding-left: 10px;
+ 	margin-top : 2px;
+    margin-left: 18px;
+    width: 290px;
+    height:80px;
+    color:gray;
+    
+    background : #eeeeee;
+   	border:0px;
+    border-radius: 2px;
+    box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
+}
+input[type=text],
+input[type=number]{
+    color: #777;
+    padding-left: 10px;
+ 	margin-top : 2px;
+    margin-left: 18px;
+    width: 290px;
+    height: 30px;
+    color:gray;
+    
+    background : #eeeeee;
+   	border:0px;
     border-radius: 2px;
     box-shadow: inset 0 1.5px 3px rgba(190,190,190,.4), 0 0 0 5px #f5f7f8;
 }
@@ -251,6 +323,11 @@ input[type=submit]:active {
 input[type=checkbox]{
 	margin-left: 20px;
 }
+.settings{
+float:right;
+
+height : 60px;
+}
 p a {
     font-size: 11px;
     color: #aaa;
@@ -261,13 +338,9 @@ p a {
     -moz-transition: all .4s ease;
     transition: all .4s ease;
 }
-.settings{
-float:right;
-
-height : 60px;
-}
 
 </style>
+
 
 </body>
 

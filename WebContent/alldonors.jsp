@@ -10,8 +10,8 @@
 
 
 <body >
-
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>  
+  
 
 <div id ="webpage" class = "animated slideInDown">
 <div id = "header">
@@ -90,8 +90,8 @@ List Of All Donors
 © Copyright 2014 BloodConnect. All rights reserved
 </div>
 </div>
-<form action="index.jsp" id="donorform" method="get">
-<input type="hidden" name="id" id = "idtosend">
+<form action="GetDonorServlet" id="donorform" method="get">
+<input type="hidden" name="idtosend" id = "idtosend">
 </form>
 
 <style>

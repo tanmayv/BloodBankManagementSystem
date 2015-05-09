@@ -54,9 +54,6 @@
 <option value="5">Other</option>
 </select>
 
-<label for="address">Your Address:</label>
-<textarea rows="4" cols="50" name="address" form="donorform"></textarea>
-
 <label for="email">Your email:</label>
 <input type="text" id="email" name="email" required="required">
 

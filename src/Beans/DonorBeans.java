@@ -109,15 +109,17 @@ public class DonorBeans implements Serializable{
 		String query = "Select * from donor where id = " + id +";";
 		try {
 			ResultSet rs = getManager().executeQuery(query);
-			this.id = id;
-			this.setAge(rs.getInt("age"));
-			this.setName(rs.getString("name"));
-			this.setBloodGroup(rs.getInt("bgroup"));
-			this.setCity(rs.getInt("city"));
-			this.setHospital(rs.getString("hospital"));
-			this.setPhone(rs.getString("phone"));
-			this.setUnits(rs.getInt("units"));
-			this.setEmail(rs.getString("email"));
+			while(rs.next()){
+				this.id = id;
+				this.setAge(rs.getInt("age"));
+				this.setName(rs.getString("name"));
+				this.setBloodGroup(rs.getInt("bgroup"));
+				this.setCity(rs.getInt("city"));
+				this.setHospital(rs.getString("hospital"));
+				this.setPhone(rs.getString("phone"));
+				this.setUnits(rs.getInt("units"));
+				this.setEmail(rs.getString("email"));
+			}
 		} catch (SQLException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
